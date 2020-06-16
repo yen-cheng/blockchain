@@ -2,7 +2,7 @@ body {
   width: 100wh;
   height: 90vh;
   color: #fff;
-  background: linear-gradient(-40deg, #525252, #2c0303, #0f0101);
+  background: linear-gradient(-40deg, #525252, #060041, #0f0101);
   background-size: 400% 400%;
   -webkit-animation: Gradient 20s ease infinite;
   -moz-animation: Gradient 20s ease infinite;
@@ -52,4 +52,20 @@ h1 {
   font-size: 3.5em;
   text-align: center;
   text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.185);
+}
+
+#chain {
+  font-size: 2em;
+}
+
+.label {
+  width: 10em;
+}
+
+#chain {
+  margin-top: 100px;
+}
+
+.card {
+  width: 30%;
 }
