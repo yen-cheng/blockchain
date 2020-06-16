@@ -54,10 +54,6 @@ h1 {
   text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.185);
 }
 
-#chain {
-  font-size: 2em;
-}
-
 .label {
   width: 10em;
 }
@@ -68,4 +64,9 @@ h1 {
 
 .card {
   width: 30%;
+}
+
+strong {
+  font-size: 1.5em;
+  margin-right: 20px;
 }
