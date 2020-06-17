@@ -63,10 +63,22 @@ h1 {
 }
 
 .card {
-  width: 30%;
+  width: 50%;
 }
 
 strong {
   font-size: 1.5em;
   margin-right: 20px;
+}
+
+.mindBtn {
+  margin-left: auto;
+}
+
+.badge {
+  font-size: 1em;
+}
+
+.mindBtn {
+  margin-left: auto;
 }

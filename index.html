@@ -27,37 +27,7 @@
       <h1 class="brand text-center">Blockchain</h1>
 
       <div id="chain">
-        <div class="row justify-content-center" id="1">
-          <div class="card card-nav-tabs col-8">
-            <div class="card-header card-header-success">
-              #1 <span>2020/06/22</span>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <span class="badge badge-pill badge-default label">NONCE</span
-                >Cras justo odio
-              </li>
-              <li class="list-group-item">
-                <span class="badge badge-pill badge-default label">DATA</span
-                ><input
-                  type="text"
-                  class="form-control"
-                  aria-describedby="data"
-                  placeholder="Input data"
-                />
-              </li>
-              <li class="list-group-item">
-                <span class="badge badge-pill badge-default label"
-                  >Previous Hash</span
-                >Vestibulum at eros
-              </li>
-              <li class="list-group-item">
-                <span class="badge badge-pill badge-default label">Hash</span
-                >Vestibulum at eros
-              </li>
-            </ul>
-          </div>
-        </div>
+        <div id="block_0"></div>
       </div>
       <div id="addition">
         <div class="row justify-content-center">
@@ -66,12 +36,8 @@
               ADD NEW BLOCK
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">DATA</label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
+              <label for="newBlock">DATA</label>
+              <textarea class="form-control" id="newBlock" rows="3"></textarea>
               <button type="button" class="btn btn-info" id="addBlock">
                 ADD
               </button>
