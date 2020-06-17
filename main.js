@@ -86,7 +86,7 @@ $(function () {
             </li>
             <li class="list-group-item"><button class="btn btn-success btn-round mindBtn" id="mindBtn_${
               block.id
-            }">MIND</button></li>
+            }">MINE</button></li>
         </ul>
         </div>
     </div>
