@@ -35,62 +35,18 @@ $(function () {
 
   $("#addBlock").click(function () {
     blockNum++;
-    let preHash;
     let previousId = "#block_" + (blockNum - 1);
     let data = $("#newBlock").val();
 
-    if (blockNum === 1) {
-      preHash = INITIAL_HASH;
-    } else {
-      preHash = blockChain[blockNum - 2].hash;
-    }
+    let preHash = getPreviousHash(blockNum);
+
     let { nonce, hash } = generateValidateHash(preHash, data);
 
     const block = new Block(blockNum, data, nonce, hash);
     blockChain.push(block);
-    $(previousId).after(`
-        <div class="row justify-content-center" id="block_${block.id}">
-        <div class="card card-nav-tabs col-9">
-        <div class="card-header card-header-success" id="block-header_${
-          block.id
-        }">
-            <strong>#${block.id}</strong> <span>${new Date()}</span>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-            <span class="badge badge-pill badge-default label">NONCE</span
-            ><span id="nonce_${block.id}">${block.nonce}</span>
-            </li>
-            <li class="list-group-item">
-            <span class="badge badge-pill badge-default label">DATA</span
-            ><input
-                type="text"
-                id="data_${block.id}"
-                class="form-control block-data"
-                aria-describedby="data"
-                placeholder="Input data"
-            />
-            </li>
-            <li class="list-group-item">
-            <span class="badge badge-pill badge-default label"
-                >Previous Hash</span
-            ><span class="badge badge-pill hash_${
-              block.id - 1
-            }">${preHash}</span>
-            </li>
-            <li class="list-group-item">
-            <span class="badge badge-pill badge-default label">Hash</span
-            ><span class="badge badge-pill hash_${
-              block.id
-            }">${block.hash}</span>
-            </li>
-            <li class="list-group-item"><button class="btn btn-success btn-round mindBtn" id="mindBtn_${
-              block.id
-            }">MINE</button></li>
-        </ul>
-        </div>
-    </div>
-    `);
+
+    addBlockHtml(previousId, block, preHash);
+
     let dataId = "#data_" + block.id;
     let hashId = ".hash_" + block.id;
     let preHashId = ".hash_" + (block.id - 1);
@@ -159,4 +115,58 @@ $(function () {
       }
     });
   });
+
+  const getPreviousHash = (blockNum) => {
+    if (blockNum === 1) {
+      return INITIAL_HASH;
+    } else {
+      return blockChain[blockNum - 2].hash;
+    }
+  };
+
+  const addBlockHtml = (previousId, block, preHash) => {
+    $(previousId).after(`
+          <div class="row justify-content-center" id="block_${block.id}">
+          <div class="card card-nav-tabs col-9">
+          <div class="card-header card-header-success" id="block-header_${
+            block.id
+          }">
+              <strong>#${block.id}</strong> <span>${new Date()}</span>
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+              <span class="badge badge-pill badge-default label">NONCE</span
+              ><span id="nonce_${block.id}">${block.nonce}</span>
+              </li>
+              <li class="list-group-item">
+              <span class="badge badge-pill badge-default label">DATA</span
+              ><input
+                  type="text"
+                  id="data_${block.id}"
+                  class="form-control block-data"
+                  aria-describedby="data"
+                  placeholder="Input data"
+              />
+              </li>
+              <li class="list-group-item">
+              <span class="badge badge-pill badge-default label"
+                  >Previous Hash</span
+              ><span class="badge badge-pill hash_${
+                block.id - 1
+              }">${preHash}</span>
+              </li>
+              <li class="list-group-item">
+              <span class="badge badge-pill badge-default label">Hash</span
+              ><span class="badge badge-pill hash_${block.id}">${
+      block.hash
+    }</span>
+              </li>
+              <li class="list-group-item"><button class="btn btn-success btn-round mindBtn" id="mindBtn_${
+                block.id
+              }">MINE</button></li>
+          </ul>
+          </div>
+      </div>
+      `);
+  };
 });
