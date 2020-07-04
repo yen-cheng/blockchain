@@ -2,47 +2,20 @@ body {
   width: 100wh;
   height: 90vh;
   color: #fff;
-  background: linear-gradient(-40deg, #525252, #060041, #0f0101);
-  background-size: 400% 400%;
-  -webkit-animation: Gradient 20s ease infinite;
-  -moz-animation: Gradient 20s ease infinite;
-  animation: Gradient 20s ease infinite;
-}
+  background-image: url("assets/img/city-night.jpg");
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
 
-@-webkit-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
 
-@-moz-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
 
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
 }
 
 h1 {
