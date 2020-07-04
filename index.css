@@ -31,6 +31,10 @@ h1 {
   width: 10em;
 }
 
+#resetBtn {
+  position: fixed;
+}
+
 #chain {
   margin-top: 100px;
 }
