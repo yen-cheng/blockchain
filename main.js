@@ -3,8 +3,8 @@ $(function () {
     "0000000000000000000000000000000000000000000000000000000000000000";
   const VALIDATION = "000";
 
-  var blockNum = 0;
-  const blockChain = [];
+  let blockNum = 0;
+  let blockChain = [];
 
   class Block {
     constructor(id, data, nonce, hash) {
@@ -187,4 +187,15 @@ $(function () {
       </div>
       `);
   };
+
+  $("#resetBtn").click(function () {
+    for (let i = blockChain.length - 1; i >= 0; i--) {
+      let id = "#block_" + (i + 1);
+      $(id).fadeOut(500, function () {
+        $(this).remove();
+      });
+    }
+    blockChain = [];
+    blockNum = 0;
+  });
 });
